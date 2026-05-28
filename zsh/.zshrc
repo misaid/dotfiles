@@ -139,8 +139,8 @@ fi
 
 
 
-# Load Angular CLI autocompletion.
-source <(ng completion script)
+# # Load Angular CLI autocompletion.
+# source <(ng completion script)
 
 
 
