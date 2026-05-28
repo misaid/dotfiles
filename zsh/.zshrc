@@ -6,26 +6,17 @@
 # fastfetch -c paleofetch -l ~/Pictures/climber.jpg --logo-height 20
 # fastfetch
 # Path to your Oh My Zsh installation.
-export SNACKS_GHOSTTY=true
-export ZSH="$HOME/.oh-my-zsh"
-export BUN_INSTALL="$HOME/.bun"
-export PATH=$BUN_INSTALL/bin:$PATH
 export HISTORY=$HOME/.zsh_history
 # export PAGER="nvim +Man"
 export EDITOR="nvim"
 export OPENAI_API_KEY=""
-export PATH=$PATH:/home/archmo/.spicetify
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 # . "/home/archmo/.deno/env"
-zstyle ':omz:plugins:pipenv' auto-shell no
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
 
 setopt NO_BEEP
 
@@ -93,9 +84,9 @@ SAVEHIST=10000
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions zoxide python vi-mode tmux pipenv archlinux history docker sudo dotnet)
+# plugins=(git zsh-syntax-highlighting zsh-autosuggestions zoxide python vi-mode tmux pipenv archlinux history docker sudo dotnet)
 
-source $ZSH/oh-my-zsh.sh
+# source $ZSH/oh-my-zsh.sh
 # Plugin configuration
 VI_MODE_SET_CURSOR=true
 # User configuration
@@ -126,7 +117,7 @@ VI_MODE_SET_CURSOR=true
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # source ~/.nvm/nvm.sh
 
@@ -134,8 +125,6 @@ VI_MODE_SET_CURSOR=true
 if [ -f ~/.zsh_aliases ]; then
   . ~/.zsh_aliases
 fi
-
-[ -s "/home/archmo/.bun/_bun" ] && source "/home/archmo/.bun/_bun"
 
 
 
