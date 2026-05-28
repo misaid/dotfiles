@@ -17,7 +17,7 @@ export OPENAI_API_KEY=""
 export PATH=$PATH:/home/archmo/.spicetify
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
-. "/home/archmo/.deno/env"
+# . "/home/archmo/.deno/env"
 zstyle ':omz:plugins:pipenv' auto-shell no
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,
