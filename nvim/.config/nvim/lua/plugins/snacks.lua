@@ -46,6 +46,7 @@ return {
             -- cmd = "chafa ~/.config/background --format symbols --symbols vhalf --size 60x17 --stretch; sleep .1",
             -- cmd = "cat ~/.config/chafa.txt",
             cmd = "cbonsai --live",
+            -- cmd = "lavat",
             -- cmd = "cmatrix -r",
             -- cmd = "kitty +kitten icat ~/Pictures/wallpapers/anime/ghibby.jpg",
             height = 19,

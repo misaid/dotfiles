@@ -5,17 +5,6 @@
                 "scale": 1
             }
         },
-        "font": {
-            "family": {
-                "clock": "Rubik",
-                "material": "Material Symbols Rounded",
-                "mono": "CaskaydiaCove NF",
-                "sans": "Rubik"
-            },
-            "size": {
-                "scale": 1
-            }
-        },
         "padding": {
             "scale": 1
         },
@@ -27,7 +16,7 @@
         },
         "transparency": {
             "base": 0.85,
-            "enabled": false,
+            "enabled": true,
             "layers": 0.4
         }
     },
@@ -51,7 +40,7 @@
         "enabled": true,
         "visualiser": {
             "autoHide": false,
-            "blur": false,
+            "blur": true,
             "enabled": false,
             "rounding": 4,
             "spacing": 0.9653132825542571
@@ -65,7 +54,7 @@
             "showOnHover": true
         },
         "clock": {
-            "background": false,
+            "background": true,
             "showDate": true,
             "showIcon": false
         },
@@ -122,20 +111,41 @@
             "workspaces": true
         },
         "showOnHover": true,
-        "status": {
-            "showAudio": true,
-            "showBattery": false,
-            "showBluetooth": true,
-            "showKbLayout": false,
-            "showLockStatus": false,
-            "showMicrophone": false,
-            "showNetwork": false,
-            "showWifi": false
-        },
+        "statusIcons": [
+            {
+                "enabled": true,
+                "id": "lockStatus"
+            },
+            {
+                "enabled": true,
+                "id": "audio"
+            },
+            {
+                "enabled": false,
+                "id": "microphone"
+            },
+            {
+                "enabled": false,
+                "id": "kbLayout"
+            },
+            {
+                "enabled": false,
+                "id": "network"
+            },
+            {
+                "enabled": true,
+                "id": "bluetooth"
+            },
+            {
+                "enabled": false,
+                "id": "battery"
+            }
+        ],
         "tray": {
             "background": false,
             "compact": true,
             "hiddenIcons": [
+                "Spotify"
             ],
             "iconSubs": [
             ],
@@ -144,8 +154,8 @@
         "workspaces": {
             "activeIndicator": true,
             "activeLabel": "󰮯",
-            "activeTrail": false,
-            "capitalisation": "preserve",
+            "activeTrail": true,
+            "capitalisation": "Preserve",
             "label": "  ",
             "maxWindowIcons": 0,
             "occupiedBg": false,
@@ -181,7 +191,9 @@
             "showStorage": true
         },
         "resourceUpdateInterval": 1000,
-        "showOnHover": true
+        "showOnHover": false,
+        "showPerformance": true,
+        "showWeather": true
     },
     "general": {
         "apps": {
@@ -195,7 +207,7 @@
                 "mpv"
             ],
             "terminal": [
-                "ghostty"
+                "kitty"
             ]
         },
         "battery": {
@@ -228,7 +240,7 @@
             "timeouts": [
                 {
                     "idleAction": "lock",
-                    "timeout": 180
+                    "timeout": 600
                 },
                 {
                     "idleAction": "dpms off",
@@ -236,10 +248,7 @@
                     "timeout": 10800
                 },
                 {
-                    "idleAction": [
-                        "systemctl",
-                        "suspend-then-hibernate"
-                    ],
+                    "idleAction": "systemctl suspend-then-hibernate",
                     "timeout": 30000
                 }
             ]
@@ -409,7 +418,7 @@
             }
         ],
         "dragThreshold": 50,
-        "enableDangerousActions": false,
+        "enableDangerousActions": true,
         "enabled": true,
         "favouriteApps": [
         ],
@@ -440,7 +449,7 @@
         "defaultExpireTimeout": 5000,
         "expandThreshold": 20,
         "expire": true,
-        "fullscreen": "on",
+        "fullscreen": "On",
         "groupPreviewNum": 3,
         "openExpanded": false
     },
@@ -469,13 +478,12 @@
                 "to": "YT Music"
             }
         ],
-        "showLyrics": false,
         "smartScheme": true,
         "useFahrenheit": false,
         "useFahrenheitPerformance": false,
         "useTwelveHourClock": true,
         "visualiserBars": 45,
-        "weatherLocation": "Edmonton, AB"
+        "weatherLocation": "53.5461, -113.4938"
     },
     "session": {
         "commands": {
@@ -562,8 +570,10 @@
             "enabled": false,
             "provider": [
                 {
+                    "id": "vpn-mt3l0dhq-4q5s6"
                 }
-            ]
+            ],
+            "selectedProvider": "vpn-mt3l0dhq-4q5s6"
         }
     }
 }
