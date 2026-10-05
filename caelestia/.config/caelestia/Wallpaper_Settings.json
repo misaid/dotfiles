@@ -2,10 +2,10 @@
     "disableAnimations": false,
     "animationDuration": 500,
     "behaviorEnabled": true,
-    "batteryLimitEnabled": true,
+    "batteryLimitEnabled": false,
     "batteryLimit": 40,
     "pauseOnFullscreen": true,
     "pauseOnGameMode": true,
-    "performanceMode": true,
+    "performanceMode": false,
     "pauseOnLock": true
 }

@@ -6,11 +6,23 @@ hl.exec_cmd("uwsm app -- hypridle")
 -- Legacy `exec-once` entries only run when the compositor starts.
 hl.on("hyprland.start", function()
 	local commands = {
-		"uwsm app -- flatpak run com.github.wwmm.easyeffects --gapplication-service",
+		"hyprctl plugin load /home/archmo/Projects/hypr-seam/build/libhypr-seam.so",
+		-- require("seam") in hyprland.lua runs during the initial config parse,
+		-- before this plugin load has had a chance to register its config
+		-- keys, so that first pass silently fails to apply seam.lua's values.
+		-- Re-trigger a reload shortly after the plugin is up so it gets
+		-- applied for real (same delayed-start pattern as the EasyEffects
+		-- entry below).
+		"sh -c 'sleep 1 && hyprctl reload'",
 		"uwsm app -- nm-applet",
 		"uwsm app -- hyprctl setcursor BreezeX-RosePineDawn-Linux 24",
 		"uwsm app -- systemctl --user start plasma-polkit-agent",
 		"uwsm app -- caelestia shell -d",
+		-- EasyEffects 8.x Qt has a native tray icon, but it only shows if the
+		-- StatusNotifierWatcher host (caelestia) is already up. Delay start so
+		-- QSystemTrayIcon::isSystemTrayAvailable() is true. --service-mode
+		-- replaces deprecated --gapplication-service; -w hides the window to tray.
+		"uwsm app -- sh -c 'sleep 5 && flatpak run com.github.wwmm.easyeffects --service-mode -w'",
 		"uwsm app -- wl-paste --type text --watch cliphist store",
 		"uwsm app -- wl-paste --type image --watch cliphist store",
 		"uwsm app -- clipse -listen",
