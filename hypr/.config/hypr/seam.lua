@@ -55,7 +55,7 @@ hl.config({
 			animate = true,
 
 			-- Duration, in milliseconds, of that easing transition.
-			animation_speed = 3000,
+			animation_speed = 300,
 
 			-- Name of a bezier curve already registered via hl.curve(...)
 			-- (or a `bezier =` line in a plain .conf config) to drive the
@@ -75,25 +75,4 @@ hl.config({
 	},
 })
 
--- Per-app rules (hl.plugin.seam.rule)
---
--- Hyprland's plugin API has no hook into the native windowrulev2 engine, so
--- hypr-seam parses its own rules using the same class:/title: match syntax
--- as windowrule2. hl.plugin.seam.rule(...) accepts either the exact string
--- a `seamrule = ...` config line would take, or an equivalent table.
-
--- String form: opt a window out of the seam effect even if
--- plugin:seam:enabled is true above.
--- hl.plugin.seam.rule("seam 0, class:^(foot)$")
-
--- Table form: give a specific app its own per-corner base rounding
--- (top-left, top-right, bottom-left, bottom-right), independent of the
--- global `rounding`/`rounding_*` values set above.
--- hl.plugin.seam.rule({ class = "^(kitty)$", rounding = { 4, 4, 22, 22 } })
-
--- Table form: force a window to never flatten (seam = false). This config
--- already has a picture-in-picture windowrule in windowrule.lua
--- (title = "(Picture-in-Picture)", float = true) — this is the hypr-seam
--- equivalent, so that floating-adjacent PiP window never visually merges
--- with whatever tiled window it happens to sit next to.
--- hl.plugin.seam.rule({ title = "^Picture-in-Picture$", seam = false })
+hl.plugin.seam.rule({ class = "^(kitty)$", rounding = { 4, 4, 22, 22 } })

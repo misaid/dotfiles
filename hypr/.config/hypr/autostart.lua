@@ -6,7 +6,8 @@ hl.exec_cmd("uwsm app -- hypridle")
 -- Legacy `exec-once` entries only run when the compositor starts.
 hl.on("hyprland.start", function()
 	local commands = {
-		"hyprctl plugin load /home/archmo/Projects/hypr-seam/build/libhypr-seam.so",
+		-- Temporarily disabled to test hyprpm-managed loading instead.
+		-- "hyprctl plugin load /home/archmo/Projects/hypr-seam/build/libhypr-seam.so",
 		-- require("seam") in hyprland.lua runs during the initial config parse,
 		-- before this plugin load has had a chance to register its config
 		-- keys, so that first pass silently fails to apply seam.lua's values.
@@ -14,6 +15,7 @@ hl.on("hyprland.start", function()
 		-- applied for real (same delayed-start pattern as the EasyEffects
 		-- entry below).
 		"sh -c 'sleep 1 && hyprctl reload'",
+		"hyprpm reload -n",
 		"uwsm app -- nm-applet",
 		"uwsm app -- hyprctl setcursor BreezeX-RosePineDawn-Linux 24",
 		"uwsm app -- systemctl --user start plasma-polkit-agent",
